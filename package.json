@@ -1,0 +1,29 @@
+{
+  "name": "group_project_educational_app",
+  "version": "1.0.0",
+  "description": "Educational App The BBC are looking to improve their online offering of educational content by developing some interactive apps that display information in a fun and interesting way.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "webpack": "cd client && webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisonwood29/group_project_educational_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alisonwood29/group_project_educational_app/issues"
+  },
+  "homepage": "https://github.com/alisonwood29/group_project_educational_app#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "mocha": "^5.0.1",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10"
+  }
+}
