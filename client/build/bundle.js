@@ -86,6 +86,7 @@ const databaseRequest = new Request('http://localhost:3000/computers')
 
 const app = function(){
 
+
   const urlArray = [];
   const baseURL = 'http://collection.sciencemuseum.org.uk/objects/'
   const fixedComputerObjects = ["co62748", "co64128", "co62427",
@@ -102,19 +103,19 @@ const app = function(){
     requestUrl.get(computerAPIRequestComplete);
   });
 
-  // databaseRequest.post(addRequestComplete)
 
 }
 
 
 
-const computerObjectsNoDate = [];
+const computerObjects = [];
 
 const computerAPIRequestComplete = function (computer) {
   const computerObject = new ComputerObject(computer.data);
-  computerObjectsNoDate.push(computerObject);
+  computerObjects.push(computerObject);
+  databaseRequest.post(computerObject)
 }
-console.log(computerObjectsNoDate);
+// console.log(computerObjects);
 
 
 
@@ -198,7 +199,7 @@ Request.prototype.get = function (callback) {
   request.send();
 }
 
-Request.prototype.post = function (callback, body) {
+Request.prototype.post = function (body) {
   const request = new XMLHttpRequest();
   request.open('POST', this.url);
   request.setRequestHeader('Content-Type', 'application/json');
@@ -206,7 +207,7 @@ Request.prototype.post = function (callback, body) {
     if(this.status !== 201) return;
 
     const responseBody = JSON.parse(this.responseText);
-    callback(responseBody);
+    
   })
   request.send(JSON.stringify(body));
 
