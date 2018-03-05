@@ -13,19 +13,20 @@ const app = function(){
     urlArray.push(requestUrl);
 
   });
-  // return urlArray;
-  console.log(urlArray);
+  // console.log(urlArray);
 
 
-//   urlArray.forEach(function (url) {
-// const requestUrl = new Request (baseURL + computer);
+  urlArray.forEach(function (url) {
+    const requestUrl = new Request (url);
+    requestUrl.get(computerAPIRequestComplete)
+  })
 
-//     url.get(callback)
-//   })
-//
-// callback
-// new ComputerObject
-// post
+}
+
+const computerAPIRequestComplete = function (computer) {
+  console.log(computer);
+  const computerObject = new ComputerObject(computer.data);
+  console.log(computerObject);
 }
 
 

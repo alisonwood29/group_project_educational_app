@@ -5,6 +5,7 @@ const Request = function (url) {
 Request.prototype.get = function (callback) {
   const request = new XMLHttpRequest();
   request.open('GET', this.url);
+  request.setRequestHeader('accept', 'application/json');
   request.addEventListener('load', function () {
     if(this.status !== 200) return;
 
