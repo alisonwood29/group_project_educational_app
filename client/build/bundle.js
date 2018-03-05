@@ -81,6 +81,8 @@
 const Request = __webpack_require__(/*! ./model/request.js */ "./src/model/request.js");
 const ComputerObject = __webpack_require__(/*! ./model/computer_object.js */ "./src/model/computer_object.js");
 
+const databaseRequest = new Request('http://localhost:3000/computers')
+
 const app = function(){
 
   const urlArray = [];
@@ -99,6 +101,8 @@ const app = function(){
     requestUrl.get(computerAPIRequestComplete);
   });
 
+  // databaseRequest.post(addRequestComplete)
+
 }
 
 
@@ -106,13 +110,29 @@ const app = function(){
 const computerObjectsNoDate = [];
 
 const computerAPIRequestComplete = function (computer) {
-  console.log(computer);
+  // console.log('data',computer.data);
   const computerObject = new ComputerObject(computer.data);
-  console.log(computerObject);
+  // console.log('name',computerObject);
   computerObjectsNoDate.push(computerObject);
 }
 
-// console.log('computer objects', computerObjectsNoDate);
+console.log('objects',computerObjectsNoDate);
+
+// const dates = [1,2,3,4,5,6,7,8,9,10];
+// dates.forEach(function (date) {
+//   computerObjectsNoDate.forEach(function (computer) {
+//     const object = new ComputerObject(computer, date)
+//   })
+// })
+// console.log('date objects', computerObjectsNoDate);
+// console.log('date', computerObjectsNoDate[0].name);
+
+// const addRequestComplete = function (computer) {
+//   computerObjectsNoDate.forEach(function (computer) {
+//
+//   })
+// }
+
 
 
 document.addEventListener('DOMContentLoaded', app);
@@ -128,13 +148,13 @@ document.addEventListener('DOMContentLoaded', app);
 /***/ (function(module, exports) {
 
 const ComputerObject = function (object, date) {
-  id = object.id;
-  date = this.date;
-  name = object.attributes.title[0].value;
-  description1 = object.attributes.options.option1;
-  description2 = object.attributes.description[0].value;
-  image = object.attributes.multimedia[0].processed.large_thumbnail.location;
-  type = object.attributes.name[0].value;
+  this.id = object.id;
+  this.date = date;
+  this.name = object.attributes.title[0].value;
+  this.description1 = object.attributes.options.option1;
+  this.description2 = object.attributes.description[0].value;
+  this.image = object.attributes.multimedia[0].processed.large_thumbnail.location;
+  this.type = object.attributes.name[0].value;
 }
 
 module.exports = ComputerObject;
@@ -162,6 +182,7 @@ Request.prototype.get = function (callback) {
 
     const responseBody = JSON.parse(this.responseText);
     callback(responseBody);
+    // console.log('response',responseBody);
   })
   request.send();
 }

@@ -1,6 +1,8 @@
 const Request = require('./model/request.js');
 const ComputerObject = require('./model/computer_object.js');
 
+const databaseRequest = new Request('http://localhost:3000/computers')
+
 const app = function(){
 
   const urlArray = [];
@@ -19,6 +21,8 @@ const app = function(){
     requestUrl.get(computerAPIRequestComplete);
   });
 
+  // databaseRequest.post(addRequestComplete)
+
 }
 
 
@@ -26,13 +30,29 @@ const app = function(){
 const computerObjectsNoDate = [];
 
 const computerAPIRequestComplete = function (computer) {
-  console.log(computer);
+  // console.log('data',computer.data);
   const computerObject = new ComputerObject(computer.data);
-  console.log(computerObject);
+  // console.log('name',computerObject);
   computerObjectsNoDate.push(computerObject);
 }
 
-// console.log('computer objects', computerObjectsNoDate);
+console.log('objects',computerObjectsNoDate);
+
+// const dates = [1,2,3,4,5,6,7,8,9,10];
+// dates.forEach(function (date) {
+//   computerObjectsNoDate.forEach(function (computer) {
+//     const object = new ComputerObject(computer, date)
+//   })
+// })
+// console.log('date objects', computerObjectsNoDate);
+// console.log('date', computerObjectsNoDate[0].name);
+
+// const addRequestComplete = function (computer) {
+//   computerObjectsNoDate.forEach(function (computer) {
+//
+//   })
+// }
+
 
 
 document.addEventListener('DOMContentLoaded', app);

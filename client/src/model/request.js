@@ -11,6 +11,7 @@ Request.prototype.get = function (callback) {
 
     const responseBody = JSON.parse(this.responseText);
     callback(responseBody);
+    // console.log('response',responseBody);
   })
   request.send();
 }
