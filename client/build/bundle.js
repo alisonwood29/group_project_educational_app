@@ -81,6 +81,7 @@
 const Request = __webpack_require__(/*! ./model/request.js */ "./src/model/request.js");
 const ComputerObject = __webpack_require__(/*! ./model/computer_object.js */ "./src/model/computer_object.js");
 
+
 const databaseRequest = new Request('http://localhost:3000/computers')
 
 const app = function(){
@@ -110,32 +111,40 @@ const app = function(){
 const computerObjectsNoDate = [];
 
 const computerAPIRequestComplete = function (computer) {
-  // console.log('data',computer.data);
   const computerObject = new ComputerObject(computer.data);
-  // console.log('name',computerObject);
   computerObjectsNoDate.push(computerObject);
 }
+console.log(computerObjectsNoDate);
 
-console.log('objects',computerObjectsNoDate);
-
-// const dates = [1,2,3,4,5,6,7,8,9,10];
-// dates.forEach(function (date) {
-//   computerObjectsNoDate.forEach(function (computer) {
-//     const object = new ComputerObject(computer, date)
-//   })
-// })
-// console.log('date objects', computerObjectsNoDate);
-// console.log('date', computerObjectsNoDate[0].name);
-
-// const addRequestComplete = function (computer) {
-//   computerObjectsNoDate.forEach(function (computer) {
-//
-//   })
-// }
 
 
 
 document.addEventListener('DOMContentLoaded', app);
+
+
+/***/ }),
+
+/***/ "./src/model/computer_dates.js":
+/*!*************************************!*\
+  !*** ./src/model/computer_dates.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const ComputerDates = {
+"co62748": 1847 ,
+"co64128": 1939,
+"co62427": 1940,
+"co8359400": 1963,
+"co503422": 1976,
+"co8401352": 1985,
+"co8035886": 1989,
+"co8430789": 1997,
+"co8184137": 1998 ,
+"co8361071": 2008
+};
+
+module.exports = ComputerDates;
 
 
 /***/ }),
@@ -145,11 +154,13 @@ document.addEventListener('DOMContentLoaded', app);
   !*** ./src/model/computer_object.js ***!
   \**************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-const ComputerObject = function (object, date) {
+const ComputerDates = __webpack_require__(/*! ./computer_dates.js */ "./src/model/computer_dates.js");
+
+const ComputerObject = function (object) {
   this.id = object.id;
-  this.date = date;
+  this.date = ComputerDates[object.id];
   this.name = object.attributes.title[0].value;
   this.description1 = object.attributes.options.option1;
   this.description2 = object.attributes.description[0].value;
@@ -182,7 +193,7 @@ Request.prototype.get = function (callback) {
 
     const responseBody = JSON.parse(this.responseText);
     callback(responseBody);
-    // console.log('response',responseBody);
+    console.log('response',responseBody);
   })
   request.send();
 }

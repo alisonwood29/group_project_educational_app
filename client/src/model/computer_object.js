@@ -1,6 +1,8 @@
-const ComputerObject = function (object, date) {
+const ComputerDates = require('./computer_dates.js');
+
+const ComputerObject = function (object) {
   this.id = object.id;
-  this.date = date;
+  this.date = ComputerDates[object.id];
   this.name = object.attributes.title[0].value;
   this.description1 = object.attributes.options.option1;
   this.description2 = object.attributes.description[0].value;
