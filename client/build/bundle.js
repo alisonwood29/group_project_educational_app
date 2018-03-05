@@ -93,21 +93,26 @@ const app = function(){
     urlArray.push(requestUrl);
 
   });
-  // console.log(urlArray);
-
 
   urlArray.forEach(function (url) {
     const requestUrl = new Request (url);
-    requestUrl.get(computerAPIRequestComplete)
-  })
+    requestUrl.get(computerAPIRequestComplete);
+  });
 
 }
+
+
+
+const computerObjectsNoDate = [];
 
 const computerAPIRequestComplete = function (computer) {
   console.log(computer);
   const computerObject = new ComputerObject(computer.data);
   console.log(computerObject);
+  computerObjectsNoDate.push(computerObject);
 }
+
+// console.log('computer objects', computerObjectsNoDate);
 
 
 document.addEventListener('DOMContentLoaded', app);
@@ -129,7 +134,6 @@ const ComputerObject = function (object, date) {
   description1 = object.attributes.options.option1;
   description2 = object.attributes.description[0].value;
   image = object.attributes.multimedia[0].processed.large_thumbnail.location;
-  // creator = object.attributes.lifecycle.creation[0].maker[0].summary_title;
   type = object.attributes.name[0].value;
 }
 
