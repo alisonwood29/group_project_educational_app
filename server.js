@@ -17,6 +17,23 @@ MongoClient.connect('mongodb://localhost:27017', function (err, client) {
   const db = client.db('education_app');
   console.log('Connected to db');
 
+// create
+  server.post('/computers', function (req, res) {
+    const computersCollection = db.collection('computers');
+    const computerToSave = req.body;
+
+    computersCollection.save(computerToSave, function (err, result) {
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+      res.status(201);
+      res.json(result.ops[0]);
+      console.log('saved to db');
+    });
+  });
+
   server.listen(3000, function () {
     console.log('Listening on port 3000');
   })
