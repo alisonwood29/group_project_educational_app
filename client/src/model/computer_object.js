@@ -8,3 +8,5 @@ const ComputerObject = function (date, object) {
   creator = object.attributes.lifecycle.creation[0].maker[0].summary_title;
   type = object.attributes.name[0].value;
 }
+
+module.exports = ComputerObject;
