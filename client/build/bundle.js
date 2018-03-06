@@ -112,6 +112,7 @@ const app = function(){
 
 
   const xcord = [50, 150, 250, 350, 450, 550, 650, 750, 850, 950];
+  canvas.timeLine();
   xcord.forEach(function(value){
   canvas.drawCircle(value);
   })
@@ -324,6 +325,14 @@ CanvasView.prototype.drawCircle = function (x) {
   this.context.arc(x,50,15,0,Math.PI*2,true);
   this.context.stroke();
 };
+
+
+CanvasView.prototype.timeLine = function(){
+  this.context.beginPath();
+  this.context.moveTo(50,50);
+  this.context.lineTo(950,50);
+  this.context.stroke();
+}
 
 module.exports = CanvasView;
 

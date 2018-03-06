@@ -12,4 +12,12 @@ CanvasView.prototype.drawCircle = function (x) {
   this.context.stroke();
 };
 
+
+CanvasView.prototype.timeLine = function(){
+  this.context.beginPath();
+  this.context.moveTo(50,50);
+  this.context.lineTo(950,50);
+  this.context.stroke();
+}
+
 module.exports = CanvasView;

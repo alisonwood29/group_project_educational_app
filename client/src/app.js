@@ -32,6 +32,7 @@ const app = function(){
 
 
   const xcord = [50, 150, 250, 350, 450, 550, 650, 750, 850, 950];
+  canvas.timeLine();
   xcord.forEach(function(value){
   canvas.drawCircle(value);
   })
