@@ -1,14 +1,18 @@
 const Request = require('./model/request.js');
 const ComputerObject = require('./model/computer_object.js');
 const ComputerObjectView = require('./model/computer_object_view.js');
+const CanvasView = require('./view/canvas_view.js');
 
 const databaseRequest = new Request('http://localhost:3000/computers');
 const computerObjectView = new ComputerObjectView();
+
+
 
 const app = function(){
 
 
   const urlArray = [];
+  const canvas = new CanvasView();
   const baseURL = 'http://collection.sciencemuseum.org.uk/objects/'
   const fixedComputerObjects = ["co62748", "co64128", "co62427",
   "co8359400", "co503422", "co8401352", "co8035886",
@@ -25,6 +29,13 @@ const app = function(){
   });
 
   databaseRequest.get(getFromDBRequestComplete);
+
+
+  const xcord = [50, 150, 250, 350, 450, 550, 650, 750, 850, 950];
+  canvas.timeLine();
+  xcord.forEach(function(value){
+  canvas.drawCircle(value);
+  })
 
 
 }
