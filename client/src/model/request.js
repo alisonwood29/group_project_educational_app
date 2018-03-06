@@ -15,18 +15,6 @@ Request.prototype.get = function (callback) {
   request.send();
 }
 
-Request.prototype.getFromDB = function (callback) {
-  const request = new XMLHttpRequest();
-  request.open('GET', this.url);
-  request.addEventListener('load', function () {
-    if(this.status !== 200) return;
-
-    const responseBody = JSON.parse(this.responseText);
-    callback(responseBody);
-  })
-  request.send();
-}
-
 Request.prototype.post = function (body) {
   const request = new XMLHttpRequest();
   request.open('POST', this.url);
@@ -39,6 +27,15 @@ Request.prototype.post = function (body) {
   })
   request.send(JSON.stringify(body));
 
+}
+
+Request.prototype.delete = function () {
+  const request = new XMLHttpRequest();
+  request.open('DELETE', this.url);
+  request.addEventListener('load', function () {
+    if(this.status !== 204) return;
+  })
+  request.send();
 }
 
 module.exports = Request;

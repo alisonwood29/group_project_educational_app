@@ -12,6 +12,10 @@ ComputerObjectView.prototype.sortByDate = function () {
   });
 }
 
+ComputerObjectView.prototype.clear = function () {
+  this.computerObjects = [];
+}
+
 
 
 

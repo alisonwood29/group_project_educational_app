@@ -48,6 +48,22 @@ MongoClient.connect('mongodb://localhost:27017', function (err, client) {
     })
   })
 
+  // delete all
+  server.delete('/computers', function (req, res) {
+    const computersCollection = db.collection('computers');
+    const filterObject = {};
+
+    computersCollection.deleteMany(filterObject, function (err, result) {
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+      res.status(204);
+      res.send();
+    });
+  });
+
   server.listen(3000, function () {
     console.log('Listening on port 3000');
   })

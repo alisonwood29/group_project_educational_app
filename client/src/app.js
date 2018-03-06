@@ -24,34 +24,27 @@ const app = function(){
     requestUrl.get(computerAPIRequestComplete);
   });
 
-  databaseRequest.getFromDB(getFromDBRequestComplete);
+  databaseRequest.get(getFromDBRequestComplete);
 
 
 }
 
 
 
-// const computerObjects = [];
-
 const computerAPIRequestComplete = function (computer) {
   const computerObject = new ComputerObject(computer.data);
-  // computerObjects.push(computerObject);
   databaseRequest.post(computerObject)
 }
 
 const getFromDBRequestComplete = function (computers) {
+  databaseRequest.delete();
   computers.forEach(function (computer) {
     computerObjectView.addComputer(computer);
   });
   computerObjectView.sortByDate();
   console.log(computerObjectView);
 }
-// console.log(computerObjects);
 
-// get objects out of db
-// add to array
-// sort array by date
-// use array to display in browser
 
 
 
