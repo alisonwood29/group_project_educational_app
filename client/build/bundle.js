@@ -81,14 +81,18 @@
 const Request = __webpack_require__(/*! ./model/request.js */ "./src/model/request.js");
 const ComputerObject = __webpack_require__(/*! ./model/computer_object.js */ "./src/model/computer_object.js");
 const ComputerObjectView = __webpack_require__(/*! ./model/computer_object_view.js */ "./src/model/computer_object_view.js");
+const CanvasView = __webpack_require__(/*! ./view/canvas_view.js */ "./src/view/canvas_view.js");
 
 const databaseRequest = new Request('http://localhost:3000/computers');
 const computerObjectView = new ComputerObjectView();
+
+
 
 const app = function(){
 
 
   const urlArray = [];
+  const canvas = new CanvasView();
   const baseURL = 'http://collection.sciencemuseum.org.uk/objects/'
   const fixedComputerObjects = ["co62748", "co64128", "co62427",
   "co8359400", "co503422", "co8401352", "co8035886",
@@ -105,6 +109,12 @@ const app = function(){
   });
 
   databaseRequest.get(getFromDBRequestComplete);
+
+
+  const xcord = [50, 150, 250, 350, 450, 550, 650, 750, 850, 950];
+  xcord.forEach(function(value){
+  canvas.drawCircle(value);
+  })
 
 
 }
@@ -290,6 +300,32 @@ Request.prototype.delete = function () {
 }
 
 module.exports = Request;
+
+
+/***/ }),
+
+/***/ "./src/view/canvas_view.js":
+/*!*********************************!*\
+  !*** ./src/view/canvas_view.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const CanvasView = function(){
+ this.canvas = document.getElementById('timeline-canvas')
+ this.context = this.canvas.getContext('2d')
+}
+
+// const context = this.canvas.getContext('2d')
+
+CanvasView.prototype.drawCircle = function (x) {
+
+  this.context.beginPath();
+  this.context.arc(x,50,15,0,Math.PI*2,true);
+  this.context.stroke();
+};
+
+module.exports = CanvasView;
 
 
 /***/ })
