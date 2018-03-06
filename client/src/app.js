@@ -1,8 +1,7 @@
 const Request = require('./model/request.js');
 const ComputerObject = require('./model/computer_object.js');
 
-
-const databaseRequest = new Request('http://localhost:3000/computers')
+const databaseRequest = new Request('http://localhost:3000/computers');
 
 const app = function(){
 
@@ -28,14 +27,19 @@ const app = function(){
 
 
 
-const computerObjects = [];
+// const computerObjects = [];
 
 const computerAPIRequestComplete = function (computer) {
   const computerObject = new ComputerObject(computer.data);
-  computerObjects.push(computerObject);
+  // computerObjects.push(computerObject);
   databaseRequest.post(computerObject)
 }
 // console.log(computerObjects);
+
+// get objects out of db
+// add to array
+// sort array by date
+// use array to display in browser
 
 
 

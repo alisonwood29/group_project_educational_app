@@ -81,8 +81,7 @@
 const Request = __webpack_require__(/*! ./model/request.js */ "./src/model/request.js");
 const ComputerObject = __webpack_require__(/*! ./model/computer_object.js */ "./src/model/computer_object.js");
 
-
-const databaseRequest = new Request('http://localhost:3000/computers')
+const databaseRequest = new Request('http://localhost:3000/computers');
 
 const app = function(){
 
@@ -108,14 +107,19 @@ const app = function(){
 
 
 
-const computerObjects = [];
+// const computerObjects = [];
 
 const computerAPIRequestComplete = function (computer) {
   const computerObject = new ComputerObject(computer.data);
-  computerObjects.push(computerObject);
+  // computerObjects.push(computerObject);
   databaseRequest.post(computerObject)
 }
 // console.log(computerObjects);
+
+// get objects out of db
+// add to array
+// sort array by date
+// use array to display in browser
 
 
 
@@ -194,7 +198,6 @@ Request.prototype.get = function (callback) {
 
     const responseBody = JSON.parse(this.responseText);
     callback(responseBody);
-    console.log('response',responseBody);
   })
   request.send();
 }
@@ -207,7 +210,7 @@ Request.prototype.post = function (body) {
     if(this.status !== 201) return;
 
     const responseBody = JSON.parse(this.responseText);
-    
+
   })
   request.send(JSON.stringify(body));
 

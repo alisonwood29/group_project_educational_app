@@ -11,7 +11,6 @@ Request.prototype.get = function (callback) {
 
     const responseBody = JSON.parse(this.responseText);
     callback(responseBody);
-    console.log('response',responseBody);
   })
   request.send();
 }
@@ -24,7 +23,7 @@ Request.prototype.post = function (body) {
     if(this.status !== 201) return;
 
     const responseBody = JSON.parse(this.responseText);
-    
+
   })
   request.send(JSON.stringify(body));
 
