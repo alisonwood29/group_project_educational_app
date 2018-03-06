@@ -7,10 +7,12 @@ ComputerObjectView.prototype.addComputer = function (computer) {
 }
 
 ComputerObjectView.prototype.sortByDate = function () {
-  this.computerObjects.sort(earliest, latest){
-    return earliest - latest;
-  }
+  this.computerObjects.sort(function (earliest, latest) {
+    return earliest.date - latest.date;
+  });
 }
+
+
 
 
 module.exports = ComputerObjectView;

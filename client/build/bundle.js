@@ -197,7 +197,25 @@ module.exports = ComputerObject;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected token (10:45)\nYou may need an appropriate loader to handle this file type.\n| \n| ComputerObjectView.prototype.sortByDate = function () {\n|   this.computerObjects.sort(earliest, latest){\n|     return earliest - latest;\n|   }");
+const ComputerObjectView = function () {
+  this.computerObjects = [];
+}
+
+ComputerObjectView.prototype.addComputer = function (computer) {
+  this.computerObjects.push(computer);
+}
+
+ComputerObjectView.prototype.sortByDate = function () {
+  this.computerObjects.sort(function (earliest, latest) {
+    return earliest.date - latest.date;
+  });
+}
+
+
+
+
+module.exports = ComputerObjectView;
+
 
 /***/ }),
 
