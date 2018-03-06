@@ -80,8 +80,10 @@
 
 const Request = __webpack_require__(/*! ./model/request.js */ "./src/model/request.js");
 const ComputerObject = __webpack_require__(/*! ./model/computer_object.js */ "./src/model/computer_object.js");
+const ComputerObjectView = __webpack_require__(/*! ./model/computer_object_view.js */ "./src/model/computer_object_view.js");
 
 const databaseRequest = new Request('http://localhost:3000/computers');
+const computerObjectView = new ComputerObjectView();
 
 const app = function(){
 
@@ -102,6 +104,8 @@ const app = function(){
     requestUrl.get(computerAPIRequestComplete);
   });
 
+  databaseRequest.getFromDB(getFromDBRequestComplete);
+
 
 }
 
@@ -113,6 +117,14 @@ const computerAPIRequestComplete = function (computer) {
   const computerObject = new ComputerObject(computer.data);
   // computerObjects.push(computerObject);
   databaseRequest.post(computerObject)
+}
+
+const getFromDBRequestComplete = function (computers) {
+  computers.forEach(function (computer) {
+    computerObjectView.addComputer(computer);
+  });
+  computerObjectView.sortByDate();
+  console.log(computerObjectView);
 }
 // console.log(computerObjects);
 
@@ -178,6 +190,17 @@ module.exports = ComputerObject;
 
 /***/ }),
 
+/***/ "./src/model/computer_object_view.js":
+/*!*******************************************!*\
+  !*** ./src/model/computer_object_view.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (10:45)\nYou may need an appropriate loader to handle this file type.\n| \n| ComputerObjectView.prototype.sortByDate = function () {\n|   this.computerObjects.sort(earliest, latest){\n|     return earliest - latest;\n|   }");
+
+/***/ }),
+
 /***/ "./src/model/request.js":
 /*!******************************!*\
   !*** ./src/model/request.js ***!
@@ -193,6 +216,18 @@ Request.prototype.get = function (callback) {
   const request = new XMLHttpRequest();
   request.open('GET', this.url);
   request.setRequestHeader('accept', 'application/json');
+  request.addEventListener('load', function () {
+    if(this.status !== 200) return;
+
+    const responseBody = JSON.parse(this.responseText);
+    callback(responseBody);
+  })
+  request.send();
+}
+
+Request.prototype.getFromDB = function (callback) {
+  const request = new XMLHttpRequest();
+  request.open('GET', this.url);
   request.addEventListener('load', function () {
     if(this.status !== 200) return;
 

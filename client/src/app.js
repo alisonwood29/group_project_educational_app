@@ -1,7 +1,9 @@
 const Request = require('./model/request.js');
 const ComputerObject = require('./model/computer_object.js');
+const ComputerObjectView = require('./model/computer_object_view.js');
 
 const databaseRequest = new Request('http://localhost:3000/computers');
+const computerObjectView = new ComputerObjectView();
 
 const app = function(){
 
@@ -22,6 +24,8 @@ const app = function(){
     requestUrl.get(computerAPIRequestComplete);
   });
 
+  databaseRequest.getFromDB(getFromDBRequestComplete);
+
 
 }
 
@@ -33,6 +37,14 @@ const computerAPIRequestComplete = function (computer) {
   const computerObject = new ComputerObject(computer.data);
   // computerObjects.push(computerObject);
   databaseRequest.post(computerObject)
+}
+
+const getFromDBRequestComplete = function (computers) {
+  computers.forEach(function (computer) {
+    computerObjectView.addComputer(computer);
+  });
+  computerObjectView.sortByDate();
+  console.log(computerObjectView);
 }
 // console.log(computerObjects);
 

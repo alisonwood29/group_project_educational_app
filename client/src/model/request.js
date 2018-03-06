@@ -15,6 +15,18 @@ Request.prototype.get = function (callback) {
   request.send();
 }
 
+Request.prototype.getFromDB = function (callback) {
+  const request = new XMLHttpRequest();
+  request.open('GET', this.url);
+  request.addEventListener('load', function () {
+    if(this.status !== 200) return;
+
+    const responseBody = JSON.parse(this.responseText);
+    callback(responseBody);
+  })
+  request.send();
+}
+
 Request.prototype.post = function (body) {
   const request = new XMLHttpRequest();
   request.open('POST', this.url);

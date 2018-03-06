@@ -8,7 +8,7 @@ ComputerObjectView.prototype.addComputer = function (computer) {
 
 ComputerObjectView.prototype.sortByDate = function () {
   this.computerObjects.sort(earliest, latest){
-    return earliest.date - latest.date;
+    return earliest - latest;
   }
 }
 
