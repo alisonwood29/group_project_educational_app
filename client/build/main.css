@@ -1,0 +1,15 @@
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#computer-detail-info{
+    width: 50%;
+
+}
+
+#computer-info {
+    width: 50%;
+
+}
