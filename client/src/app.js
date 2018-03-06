@@ -43,7 +43,7 @@ const getFromDBRequestComplete = function (computers) {
   });
   computerObjectView.sortByDate();
   console.log(computerObjectView);
-  computerObjectView.populateText(computerObjectView.computerObjects[0]);
+  computerObjectView.populateObjectDetails(computerObjectView.computerObjects[0]);
 }
 
 

@@ -1,15 +1,12 @@
 body {
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
-#computer-detail-info{
+#computer-detail-info {
     width: 50%;
-
 }
 
 #computer-info {
-    width: 50%;
-
+    display: flex;
+    width: 100%;
 }
