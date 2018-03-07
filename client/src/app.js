@@ -64,7 +64,7 @@ const getFromDBRequestComplete = function (computers) {
   });
   computerObjectView.sortByDate();
   console.log(computerObjectView);
-  computerObjectView.populateObjectDetails(computerObjectView.computerObjects[9]);
+  // computerObjectView.populateObjectDetails(computerObjectView.computerObjects[9]);
   computerObjectView.populateTimelineList(computerObjectView.computerObjects);
   timelineView.initialise();
 

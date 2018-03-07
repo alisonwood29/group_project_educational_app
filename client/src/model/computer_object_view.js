@@ -17,7 +17,7 @@ ComputerObjectView.prototype.clear = function () {
 }
 
 ComputerObjectView.prototype.populateObjectDetails = function (computer) {
-    // const section = document.getElementById('computer-detail-section');
+  const section = document.getElementById('computer-detail-section');
     const detailDiv = document.getElementById('computer-detail-info');
     const imageDiv = document.getElementById('computer-detail-image');
     const ul = document.createElement('ul');
@@ -58,7 +58,20 @@ ComputerObjectView.prototype.populateTimelineList = function (computers) {
     listItem.appendChild(listItemDiv);
     list.appendChild(listItem);
 
+    listItemDiv.addEventListener('click', function () {
+      this.clearSection();
+      this.populateObjectDetails(computer)
+    }.bind(this))
+
   }.bind(this))
+}
+
+ComputerObjectView.prototype.clearSection = function () {
+  const detailDiv = document.getElementById('computer-detail-info');
+  const imageDiv = document.getElementById('computer-detail-image');
+  detailDiv.innerHTML = '';
+  imageDiv.innerHTML = '';
+  console.log('clear');
 }
 
 
