@@ -32,6 +32,7 @@ ComputerObjectView.prototype.populateObjectDetails = function (computer) {
     this.createListElement('Description: ', description, ul);
     this.createListElement('Type: ', computer.type, ul);
     const image = document.createElement('img');
+    image.height = "400";
     image.src = computer.image;
     imageDiv.appendChild(image);
 
