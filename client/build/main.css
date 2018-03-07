@@ -35,8 +35,7 @@ header, footer {
   background-color: DodgerBlue;
 }
 
-
-/* canvas {
-  border: 1px solid black;
-  width: 100%;
-} */
+button {
+  background-color: DodgerBlue;
+  border: none;
+}
