@@ -28,8 +28,12 @@ header, footer {
   background-color: DarkSeaGreen;
 }
 
+#timeline-section {
+  background-color: DodgerBlue;
+}
 
-canvas {
+
+/* canvas {
   border: 1px solid black;
   width: 100%;
-}
+} */
