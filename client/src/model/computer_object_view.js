@@ -17,11 +17,12 @@ ComputerObjectView.prototype.clear = function () {
 }
 
 ComputerObjectView.prototype.populateObjectDetails = function (computer) {
-    const section = document.getElementById('computer-detail-section');
+    // const section = document.getElementById('computer-detail-section');
     const detailDiv = document.getElementById('computer-detail-info');
     const imageDiv = document.getElementById('computer-detail-image');
     const ul = document.createElement('ul');
     detailDiv.appendChild(ul);
+    // console.log('object details', this);
     this.createListElement('Date: ', computer.date, ul);
     this.createListElement('Name: ', computer.name, ul);
     let description = computer.description1;
@@ -37,10 +38,21 @@ ComputerObjectView.prototype.populateObjectDetails = function (computer) {
 }
 
 ComputerObjectView.prototype.createListElement = function (label, text, surroundingDiv) {
-    const span = document.createElement('li');
-    span.innerText = label + text;
-    surroundingDiv.appendChild(span);
+    const li = document.createElement('li');
+    li.innerText = label + text;
+    surroundingDiv.appendChild(li);
 
+}
+
+ComputerObjectView.prototype.populateTimelineList = function (computers) {
+  const list = document.getElementById('timeline-list');
+  computers.forEach(function (computer) {
+    const listItemDiv = document.createElement('div');
+    // console.log(this);
+    this.createListElement('Date: ', computer.date, listItemDiv);
+    this.createListElement('Name: ', computer.name, listItemDiv);
+    list.appendChild(listItemDiv);
+  }.bind(this))
 }
 
 
