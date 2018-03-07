@@ -1,5 +1,6 @@
 html{
   font-family: monospace;
+  background-image: url(https://www.walldevil.com/wallpapers/w17/circuit-board-art.jpg);
 }
 
 #contents {
@@ -20,6 +21,7 @@ html{
 #computer-detail-info {
   width: 60%;
   background-color: PapayaWhip;
+  opacity: 0.8;
 }
 
 #computer-detail-image {
@@ -32,10 +34,13 @@ header, footer {
 }
 
 .timeline {
-  background-color: DodgerBlue;
+  /* background-color: DodgerBlue;
+  background: linear-gradient(45deg, white, blue); */
+  background: transparent;
 }
 
 button {
-  background-color: DodgerBlue;
+  /* background-color: DodgerBlue; */
   border: none;
+  background: transparent;
 }
