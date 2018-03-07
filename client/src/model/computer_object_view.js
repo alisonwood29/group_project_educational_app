@@ -47,6 +47,7 @@ ComputerObjectView.prototype.createListElement = function (label, text, surround
 ComputerObjectView.prototype.populateTimelineList = function (computers) {
   const list = document.getElementById('timeline-list');
   computers.forEach(function (computer) {
+    const listItem = document.createElement('li');
     const listItemDiv = document.createElement('div');
     const date = document.createElement('time');
     date.innerText = computer.date;
@@ -54,7 +55,9 @@ ComputerObjectView.prototype.populateTimelineList = function (computers) {
     name.innerText = computer.name;
     listItemDiv.appendChild(date);
     listItemDiv.appendChild(name);
-    list.appendChild(listItemDiv);
+    listItem.appendChild(listItemDiv);
+    list.appendChild(listItem);
+
   }.bind(this))
 }
 
