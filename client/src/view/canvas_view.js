@@ -20,4 +20,12 @@ CanvasView.prototype.timeLine = function(){
   this.context.stroke();
 }
 
+CanvasView.prototype.getMousePos = function (evt) {
+  const rect = this.canvas.getBoundingClientRect();
+      return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+      };
+    }
+
 module.exports = CanvasView;

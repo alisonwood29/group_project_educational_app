@@ -37,6 +37,15 @@ const app = function(){
   canvas.drawCircle(value);
   })
 
+  canvas.canvas.addEventListener('click', function (evt) {
+    const mousePos = canvas.getMousePos(evt);
+    const message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+    console.log(message);
+  })
+
+
+
+
 
 }
 
@@ -54,7 +63,7 @@ const getFromDBRequestComplete = function (computers) {
   });
   computerObjectView.sortByDate();
   console.log(computerObjectView);
-  computerObjectView.populateObjectDetails(computerObjectView.computerObjects[0]);
+  computerObjectView.populateObjectDetails(computerObjectView.computerObjects[9]);
 }
 
 
