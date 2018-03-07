@@ -1,16 +1,16 @@
 const Request = require('./model/request.js');
 const ComputerObject = require('./model/computer_object.js');
 const ComputerObjectView = require('./model/computer_object_view.js');
-// const CanvasView = require('./view/canvas_view.js');
+const TimelineView = require('./view/timeline_view.js');
 
 const databaseRequest = new Request('http://localhost:3000/computers');
 const computerObjectView = new ComputerObjectView();
+const timelineView = new TimelineView();
 
 
 
 const app = function(){
 
-  // const canvas = new CanvasView();
 
   const urlArray = [];
   const baseURL = 'http://collection.sciencemuseum.org.uk/objects/'
@@ -29,7 +29,6 @@ const app = function(){
   });
 
   databaseRequest.get(getFromDBRequestComplete);
-
 
 
 
@@ -67,6 +66,8 @@ const getFromDBRequestComplete = function (computers) {
   console.log(computerObjectView);
   computerObjectView.populateObjectDetails(computerObjectView.computerObjects[9]);
   computerObjectView.populateTimelineList(computerObjectView.computerObjects);
+  timelineView.initialise();
+
 }
 
 
