@@ -1,6 +1,9 @@
+html{
+  font-family: monospace;
+}
+
 #contents {
   width: 100%;
-
 }
 
 #computer-detail-section {
