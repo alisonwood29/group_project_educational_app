@@ -23,16 +23,12 @@ const ComputerDates = {
     "co8094235": 1983,
     "co8194710": 1990,
     "co63204": 1972,
-    "co8361046": 2012
+    "co8361046": 2012,
+    "co8361832": 1992,
+    "co8362946": 1994
 };
 
 module.exports = ComputerDates;
-
-
-
-
-
-
 
 
 
