@@ -37,16 +37,16 @@ const setIntroText =  function (title, text, image, alt) {
   const detailDiv = document.getElementById('computer-detail-info');
   const imageDiv = document.getElementById('computer-detail-image');
   const img = document.createElement('img');
-  const h1 = document.createElement('h1');
+  const h2 = document.createElement('h2');
   const p = document.createElement('p');
 
 
-  h1.innerText = title;
+  h2.innerText = title;
   p.innerText = text;
   img.src = image;
   img.alt = alt;
 
-  detailDiv.appendChild(h1);
+  detailDiv.appendChild(h2);
   detailDiv.appendChild(p);
 
   imageDiv.appendChild(img);

@@ -4,12 +4,21 @@ html{
   background-size: cover;
 }
 
+h2{
+  font-size: 28px;
+}
+
+p{
+  font-size: 16px;
+}
+
 #computer-detail-info ul p{
   padding-bottom: 15px;
+  font-size: 20px;
 }
 
 #computer-detail-info ul span{
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bolder;
   text-decoration: underline;
 }
