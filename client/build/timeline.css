@@ -15,8 +15,8 @@
   display: inline-block;
   list-style-type: none;
   width: 160px;
-  height: 5px;
-  background: #fff;
+  height: 3px;
+  background-color: white;
 }
 
 .timeline ol li:last-child {
@@ -25,7 +25,7 @@
 
 /*increasing margin left prevents overlapp*/
 .timeline ol li:not(:first-child) {
-  margin-left: 27px;
+  margin-left: 18px;
 }
 
 .timeline ol li:not(:last-child)::after {
@@ -35,8 +35,8 @@
   left: calc(100% + 1px);
   bottom: 0;
 
-  width: 25px;
-  height: 25px;
+  width: 16px;
+  height: 16px;
   transform: translateY(-50%);
   border-radius: 50%;
   background: #F45B69;
@@ -50,7 +50,8 @@
   font-size: 1rem;
   white-space: normal;
   color: black;
-  background: white;
+  background-image: url(http://avante.biz/wp-content/uploads/Gradient-Wallpapers/Gradient-Wallpapers-018.jpg);
+  background-size: cover;
 }
 
 .timeline ol li div::before {

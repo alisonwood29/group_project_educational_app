@@ -40,8 +40,11 @@ ComputerObjectView.prototype.populateObjectDetails = function (computer) {
 }
 
 ComputerObjectView.prototype.createListElement = function (label, text, surroundingDiv) {
-    const li = document.createElement('li');
-    li.innerText = label + text;
+    const span = document.createElement('span');
+    const li = document.createElement('p');
+    span.innerText= label;
+    li.innerText = text;
+    surroundingDiv.appendChild(span);
     surroundingDiv.appendChild(li);
 }
 
