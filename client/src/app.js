@@ -12,10 +12,11 @@ const timelineView = new TimelineView();
 const app = function(){
 
   const urlArray = [];
-  const baseURL = 'http://collection.sciencemuseum.org.uk/objects/'
+  const baseURL = 'http://collection.sciencemuseum.org.uk/objects/';
   const fixedComputerObjects = ["co62748", "co64128", "co62427","co8359400", "co503422", "co8401352", "co8035886", "co8430789", "co8184137", "co8361071"];
+  const additionalObjects = ["co8362946","co8361832", "co8361046","co63204","co8194710","co8094235","co8401258","co8361038","co63199","co8015289","co8061113","co62556","co8408693","co62349","co60113","co60390","co60127","co62748", "co64128", "co62427","co8359400", "co503422", "co8401352", "co8035886", "co8430789", "co8184137", "co8361071"];
 
-  fixedComputerObjects.forEach(function(computer){
+  additionalObjects.forEach(function(computer){
     const requestUrl = baseURL + computer;
     urlArray.push(requestUrl);
   });
