@@ -1,6 +1,7 @@
 html{
   font-family: 'Raleway', sans-serif;
-  background-image: url(https://i.pinimg.com/originals/70/f4/2f/70f42f7189958679533787bc20c7364b.jpg);
+  background-image: url(https://ak7.picdn.net/shutterstock/videos/17413294/thumb/1.jpg);
+  background-size: cover;
 }
 
 #computer-detail-info ul p{
@@ -22,7 +23,7 @@ html{
   /* width: 100%; */
   margin: 0 10%;
   padding-top: 50px;
-  padding-left: 10%;
+  /* padding-left: 9%; */
   /* padding-right: 25%; */
   justify-content: center;
   align-content: center;
@@ -30,19 +31,34 @@ html{
 
 #computer-detail-info {
   width: 60%;
-  text-align: inherit;
+  padding: 10px;
   background-color: black;
   opacity: 0.8;
   color: white;
 }
 
 #computer-detail-image {
-  width: 40%;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 15px;
 }
 
-header, footer {
+header {
   text-align: center;
-  background-color: black;
+  font-size: 30px;
+  background-image: url(https://www.motionbackgroundsforfree.com/wp-content/uploads/2012/02/Screen-shot-2012-02-16-at-10.00.01-AM.png);
+  color: white;
+  border-style: groove;
+}
+
+footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  background-image: url(https://www.motionbackgroundsforfree.com/wp-content/uploads/2012/02/Screen-shot-2012-02-16-at-10.00.01-AM.png);
   color: white;
   border-style: groove;
   opacity: 0.7;

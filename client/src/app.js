@@ -11,6 +11,8 @@ const timelineView = new TimelineView();
 
 const app = function(){
 
+  setIntroText("Welcome", "Scroll through the timeline to see how technology has changed through the ages.", 'https://smgco-images.s3.amazonaws.com/media/I/A/A/large_thumbnail_1999_0915.jpg', 'Apple 1 Computer');
+
   const urlArray = [];
   const baseURL = 'http://collection.sciencemuseum.org.uk/objects/';
   const fixedComputerObjects = ["co62748", "co64128", "co62427","co8359400", "co503422", "co8401352", "co8035886", "co8430789", "co8184137", "co8361071"];
@@ -29,6 +31,25 @@ const app = function(){
   databaseRequest.get(getFromDBRequestComplete);
 
 
+}
+
+const setIntroText =  function (title, text, image, alt) {
+  const detailDiv = document.getElementById('computer-detail-info');
+  const imageDiv = document.getElementById('computer-detail-image');
+  const img = document.createElement('img');
+  const h1 = document.createElement('h1');
+  const p = document.createElement('p');
+
+
+  h1.innerText = title;
+  p.innerText = text;
+  img.src = image;
+  img.alt = alt;
+
+  detailDiv.appendChild(h1);
+  detailDiv.appendChild(p);
+
+  imageDiv.appendChild(img);
 }
 
 
