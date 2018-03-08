@@ -8,8 +8,6 @@ TimelineView.prototype.initialise = function () {
   const arrows = document.querySelectorAll(".timeline .arrows .arrow");
   const scrollAlong = 280;
 
-  // console.log(getComputedStyle(timeline).getPropertyValue('-webkit-transform'));
-
   animateTl(scrollAlong, arrows, timeline);
   // setKeyPress(arrowPrev, arrowNext);
 }
