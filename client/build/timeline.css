@@ -23,7 +23,7 @@
   display: inline-block;
   list-style-type: none;
   width: 160px;
-  height: 3px;
+  height: 5px;
   background: #fff;
 }
 
@@ -31,8 +31,9 @@
   width: 280px;
 }
 
+/*increasing margin left prevents overlapp*/
 .timeline ol li:not(:first-child) {
-  margin-left: 14px;
+  margin-left: 27px;
 }
 
 .timeline ol li:not(:last-child)::after {
@@ -41,8 +42,9 @@
   top: 50%;
   left: calc(100% + 1px);
   bottom: 0;
-  width: 12px;
-  height: 12px;
+
+  width: 25px;
+  height: 25px;
   transform: translateY(-50%);
   border-radius: 50%;
   background: #F45B69;
@@ -69,19 +71,21 @@
   border-style: solid;
 }
 
+/*the top value sets the distance of the div from the line*/
 .timeline ol li:nth-child(odd) div {
-  top: -16px;
+  top: -25px;
   transform: translateY(-100%);
 }
 
 .timeline ol li:nth-child(odd) div::before {
   top: 100%;
-  border-width: 8px 8px 0 0;
+  border-width: 8px 8px 20px 0;
   border-color: white transparent transparent transparent;
 }
 
+/*increasing the plus value here pushes the lower divs further below the line*/
 .timeline ol li:nth-child(even) div {
-  top: calc(100% + 16px);
+  top: calc(100% + 25px);
 }
 
 .timeline ol li:nth-child(even) div::before {

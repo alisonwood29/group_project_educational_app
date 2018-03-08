@@ -36,7 +36,8 @@ const animateTl = function (scrolling, elements, timeline) {
       else{
         const tlStyle = getComputedStyle(timeline);
         const tlTransform = tlStyle.getPropertyValue('-webkit-transform') || tlStyle.getPropertyValue('transform');
-        const values = parseInt(tlTransform.split(',')[4]) + parseInt(`${sign}${scrolling}`);
+        let values = parseInt(tlTransform.split(',')[4]) + parseInt(`${sign}${scrolling}`);
+        if(values >= 0) values = 0;
         timeline.style.transform = `translateX(${values}px)`
       }
       setTimeout(setTimeoutState(firstComputer, lastComputer, arrowNext, arrowPrev), 1100);
