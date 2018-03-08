@@ -6,10 +6,12 @@ const TimelineView = function () {
 TimelineView.prototype.initialise = function () {
   const timeline = document.querySelector(".timeline ol");
   const arrows = document.querySelectorAll(".timeline .arrows .arrow");
+  const arrowPrev = document.querySelector(".timeline .arrows .arrow__prev");
+  const arrowNext = document.querySelector(".timeline .arrows .arrow__next");
   const scrollAlong = 280;
 
   animateTl(scrollAlong, arrows, timeline);
-  // setKeyPress(arrowPrev, arrowNext);
+  setKeyPress(arrowPrev, arrowNext, timeline);
 }
 
 const animateTl = function (scrolling, elements, timeline) {
@@ -70,6 +72,24 @@ const setButtonState = function (element, flag = true) {
 const setTimeoutState = function (firstItem, lastItem, arrowNext, arrowPrev) {
   isElementInViewport(firstItem) ? setButtonState(arrowPrev) : setButtonState(arrowPrev, false);
   isElementInViewport(lastItem) ? setButtonState(arrowNext) : setButtonState(arrowNext, false);
+}
+
+const setKeyPress = function (prev, next, timeline) {
+  document.addEventListener('keydown', function (event) {
+    // console.log('keypress');
+    if((event.which === 37) || (event.which === 39)){
+      const timelineOfTop = timeline.offsetTop;
+      const y = window.pageYOffset;
+      if(timelineOfTop !== y){
+        window.scrollTo(0, timelineOfTop);
+      }
+      if (event.which === 37){
+        prev.click();
+      } else if (event.which === 39){
+        next.click();
+      }
+    }
+  })
 }
 
 module.exports = TimelineView;
