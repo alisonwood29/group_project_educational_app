@@ -32,7 +32,7 @@ ComputerObjectView.prototype.populateObjectDetails = function (computer) {
   this.createListElement('Description: ', description, ul);
 
   const image = document.createElement('img');
-  image.height = "550";
+  image.height = "400";
   image.src = computer.image;
   imageDiv.appendChild(image);
 
@@ -73,11 +73,12 @@ ComputerObjectView.prototype.populateTimelineList = function (computers) {
       this.populateObjectDetails(computer)
     }.bind(this))
 
-      listItemDiv.addEventListener("mouseover", function(){;
-        listItemDiv.style.border = "4px solid #3366BB";
-        listItemDiv.addEventListener("mouseout", function(){
-          listItemDiv.style.border = "4px solid black";
-        });
+    listItemDiv.addEventListener("mouseover", function(){
+      listItemDiv.style.border = "2px solid #3366BB";
+    });
+
+    listItemDiv.addEventListener("mouseout", function(){
+    listItemDiv.style.border = "none";
 
     });
 
