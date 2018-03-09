@@ -34,7 +34,6 @@
   top: 50%;
   left: calc(100% + 1px);
   bottom: 0;
-
   width: 16px;
   height: 16px;
   transform: translateY(-50%);

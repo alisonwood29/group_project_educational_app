@@ -39,6 +39,8 @@ const setIntroText =  function (title, text, image, alt) {
   const img = document.createElement('img');
   const h2 = document.createElement('h2');
   const p = document.createElement('p');
+  p.id = "welcome-text";
+  img.id = "welcome-img";
 
 
   h2.innerText = title;

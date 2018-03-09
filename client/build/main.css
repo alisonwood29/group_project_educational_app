@@ -2,14 +2,43 @@ html{
   font-family: 'Raleway', sans-serif;
   background-image: url(https://ak7.picdn.net/shutterstock/videos/17413294/thumb/1.jpg);
   background-size: cover;
+  height: 100%;
 }
 
-h2{
-  font-size: 28px;
+body {
+  height: 100%;
 }
 
-p{
+header {
+  min-height: 4%;
+  text-align: center;
+  font-size: 30px;
+  background-image: url(https://www.motionbackgroundsforfree.com/wp-content/uploads/2012/02/Screen-shot-2012-02-16-at-10.00.01-AM.png);
+  color: white;
+  border-style: groove;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+
+h2 {
+  font-size: 40px;
+}
+
+p {
   font-size: 16px;
+}
+
+#welcome-text {
+  font-size: 20px;
+}
+
+#welcome-img {
+  width: 500px;
+  height: 500px;
 }
 
 #computer-detail-info ul p{
@@ -25,15 +54,16 @@ p{
 
 #contents {
   width: 100%;
+  height: 70%;
 }
 
+
 #computer-detail-section {
+  height: 65%;
   display: flex;
-  /* width: 100%; */
+  max-width: 90%;
   margin: 0 10%;
   padding-top: 50px;
-  /* padding-left: 9%; */
-  /* padding-right: 25%; */
   justify-content: center;
   align-content: center;
 }
@@ -44,43 +74,17 @@ p{
   background-color: black;
   opacity: 0.8;
   color: white;
+  height: auto;
 }
 
 #computer-detail-image {
   align-items: center;
-  padding-left: 20px;
-  padding-top: 15px;
+  padding: 20px;
+  background: rgba(0, 0, 0,.8);
+  background-position: center;
 }
 
-header {
-  text-align: center;
-  font-size: 30px;
-  background-image: url(https://www.motionbackgroundsforfree.com/wp-content/uploads/2012/02/Screen-shot-2012-02-16-at-10.00.01-AM.png);
-  color: white;
-  border-style: groove;
-}
-
-footer{
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  text-align: center;
-  font-size: 30px;
-  background-image: url(https://www.motionbackgroundsforfree.com/wp-content/uploads/2012/02/Screen-shot-2012-02-16-at-10.00.01-AM.png);
-  color: white;
-  border-style: groove;
-  opacity: 0.7;
-}
 
 .timeline {
-  /* background-color: DodgerBlue;
-  background: linear-gradient(45deg, white, blue); */
-  background: transparent;
-}
-
-button {
-  /* background-color: DodgerBlue; */
-  border: none;
   background: transparent;
 }
